@@ -1,0 +1,22 @@
+<div ng-controller="ContestantCtrl" layout="column">
+    <div class="card" md-whiteframe="1" layout="row" layout-wrap>
+        <div flex="50" flex-xs="100" class="md-headline">{{data.profile.firstName}} {{data.profile.lastName}}</div>
+        <div flex="50" flex-xs="100" class="md-headline">{{data.profile.tribe.name}} Tribe</div>
+        <div flex="50" flex-xs="100">Rank: {{data.profile.rank}}</div>
+        <div flex="50" flex-xs="100">{{data.profile.pickedBy.firstName}} {{data.profile.pickedBy.lastName}}</div>
+
+    </div>
+    <div layout="column" layout-gt-sm="row">
+        <div flex-gt-sm class="card" md-whiteframe="1">
+            <h1 class="md-title">Points Per Episode</h1>
+            <div layout="column" layout-align="center center">
+                <svg id="contestant-episode"></svg>
+            </div>
+        </div>
+        <div flex-gt-sm class="card" md-whiteframe="1" layout="column" ng-if="!loading">
+            <h1 class="md-title">Point Breakdown</h1>
+            <edu-pie-chart data="data.pieChart">
+            </edu-pie-chart>
+        </div>
+    </div>
+</div>

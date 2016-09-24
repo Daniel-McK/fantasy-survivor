@@ -1,0 +1,32 @@
+<div ng-controller="ContestantsCtrl" layout="column">
+    <md-grid-list 
+            ng-if="!loading"
+            md-cols-xs="2"
+            md-cols-sm="3"
+            md-cols-md="4"
+            md-cols-lg="5"
+            md-cols-gt-lg="6"
+            md-gutter="10px"
+            md-row-height="4:3">
+        <md-grid-tile
+            md-whiteframe="2"
+            ng-repeat="contestant in contestants"
+            class="contestant-profile-tile"
+            ui-sref="contestant({id:contestant._id})">
+            <div class="contestant-overlay" ng-style="getColor(contestant)"></div>
+            <img class="contestant-img" ng-src="imgs/{{contestant.imageName}}" />
+            <div class="contestant-name" layout="column">
+                <div>{{ contestant.firstName }} {{ contestant.lastName }}</div>
+                <div ng-if="contestant.tribe">{{contestant.tribe.name}}</div>
+            </div>
+            <div class="contestant-stats" layout="column">
+                <div layout="row">
+                    <div class="place">{{contestant.rank}}</div>
+                    <div class="descriptor">{{getDescriptor(contestant.rank)}}</div>
+                </div>
+
+                <div class="num-points">{{contestant.points}} points</div>
+            </div>
+        </md-grid-tile>
+    </md-grid-list>
+</div>

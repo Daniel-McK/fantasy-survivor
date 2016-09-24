@@ -1,0 +1,171 @@
+body{
+    font-family: 'Roboto', sans-serif;
+}
+
+.navigation-namespace > div{
+    background-color: #558B2F;
+    color: white;
+}
+.navigation-namespace > md-content{
+    background-color: #689F38; 
+    color: white;
+    font-size: 1.1em;
+}
+.navigation-namespace ul.level-one > li {
+    margin-bottom: 15px;
+}
+.navigation-namespace .nav-link{
+    cursor: pointer;
+    outline: none;
+}
+.navigation-namespace .nav-link:hover{
+    color: #FFC107;
+}
+.navigation-namespace .nav-link:active{
+    color: #FFA000;
+}
+.navigation-namespace .nav-link{
+    padding:2px 0;
+}
+
+.toolbar-namespace,
+.toolbar-namespace md-icon{
+    color: white !important;
+}
+
+.main-content {
+    padding: 6px;
+    background-color: #dfdfdf;
+}
+
+.main-content .card{
+    padding: 12px;
+    margin:6px;
+    background-color: white;
+}
+
+.pie-chart{
+    position: relative;
+}
+
+.pie-chart-legend{
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.pie-chart-legend-entry{
+    color: black;
+    transition: 0.2s all;
+}
+
+.pie-chart-legend-entry.hidden {
+    opacity: 0;
+}
+
+
+
+.line-graph canvas{
+    height:250px;
+}
+
+.contestant-profile-tile{
+    background-color: white;
+    outline:none;
+    cursor: pointer;
+}
+
+.contestant-profile-tile:hover{
+    box-shadow: 0 3px 5px -1px rgba(0,0,0,.2),0 5px 8px 0 rgba(0,0,0,.14),0 1px 14px 0 rgba(0,0,0,.12);
+}
+
+.contestant-profile-tile .contestant-overlay{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height:100%;
+    opacity: 0.5;
+    z-index:2;
+}
+
+.contestant-profile-tile:hover .contestant-overlay{
+    opacity: 0;
+}
+
+.contestant-profile-tile .contestant-img{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    filter: grayscale(100%);
+    -webkit-filter: grayscale(100%);
+}
+.contestant-profile-tile:hover .contestant-img{
+    filter: inherit;
+    -webkit-filter: inherit;
+}
+
+
+.contestant-profile-tile .contestant-name{
+    color:white;
+    position:absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align:center;
+    z-index: 3;
+    font-size: 1.3em;
+    text-shadow: 0 0 4px black;
+    padding-bottom: 5px;
+}
+
+.contestant-profile-tile .contestant-stats{
+    color:white;
+    position:absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 3;
+    text-shadow: 0 0 4px black;
+    padding:5px;
+}
+
+.contestant-profile-tile .contestant-stats .place {
+    font-size: 2em;
+}
+
+.contestant-profile-tile .contestant-stats .place-descriptor{
+    font-size: 0.5em;
+}
+
+.contestant-profile-tile .contestant-stats .num-points {
+    font-size: 0.9em;
+}
+
+.tribe-badge{
+    color:white;
+    font-weight: 500;
+    padding: 0 5px;
+    border-radius: 2px;
+}
+
+
+svg .point-bar {
+    fill: rgba(63, 81, 181, 0.5);
+}
+svg .point-bar:hover {
+    fill: rgba(63, 81, 181, 0.25);
+}
+
+svg line.axis {
+    stroke:rgba(0,0,0, 0.5);
+    stroke-width:1
+}
+
+
+
+.eliminated {
+    text-decoration: line-through;
+}

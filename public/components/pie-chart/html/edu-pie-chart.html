@@ -1,0 +1,8 @@
+﻿<div layout="column" layout-align="center center" class="pie-chart">
+    <div class="pie-chart-legend" layout="column" layout-align="start start">
+        <div ng-repeat="datum in data" class="pie-chart-legend-entry" ng-style="datum.style" ng-class="{'hidden': selected && selected!==datum}">
+            {{datum.title}} {{datum.value.toFixed(1)}}%
+        </div>
+    </div>
+    <canvas ng-attr-id="{{id}}" height="250" width="250" ng-mousemove="findHovered($event)" ng-mouseleave="selected=null"></canvas>
+</div>

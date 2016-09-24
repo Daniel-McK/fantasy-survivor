@@ -1,0 +1,86 @@
+<html lang="en" ng-app="SrvvrApp" ng-controller="SrvvrCtrl">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <title>Fantasy Survivor</title>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/libs/angular-material/angular-material.min.css" />
+    <link rel="stylesheet" href="/core/css/app.css" />
+    <!--<link rel="stylesheet" href="/css/sidenav.css" />
+    <link rel="stylesheet" href="/css/dialog.css" />-->
+
+</head>
+<body ng-cloak layout="row">
+<md-sidenav class="md-sidenav-left" md-whiteframe="2" md-component-id="left" layout="column">
+    <div class="navigation-namespace" layout="column" flex>
+        <div md-whiteframe="2" layout layout-align="center center" layout="row">
+            <div flex style="width:100px; height: 100px" flex="50" layout-align="center center" layout="row">
+                <md-icon style="width:100px; height:100px; font-size: 100px;">person</md-icon>
+            </div>
+            <div flex layout="column" layout-align="space-between center">
+                <div ng-if="!navInfo.isLoggedIn" style="text-align:center">Not logged in</div>
+                <div ng-if="navInfo.isLoggedIn" style="text-align:center">{{navInfo.user.firstName}} {{navInfo.user.lastName}}</div>
+                <md-button ng-if="!navInfo.isLoggedIn" class="md-raised" ng-click="login()">Log in</md-button>
+                <md-button ng-if="navInfo.isLoggedIn" class="md-raised" ng-click="logout()">Logout</md-button>
+            </div>
+        </div>
+        <md-content flex>
+            <ul class="level-one">
+                <li ng-if="navInfo.user.admin">
+                    <div class="nav-link" ui-sref="point" ng-click="closeNav()">add points</div>
+                </li>
+                <li>
+                    <div ui-sref="contestants" class="nav-link" ng-click="closeNav()">characters</div>
+                    <ul class="level-two">
+                        <li ui-sref="contestant({ id: con._id })" ng-click="closeNav()" class="nav-link" ng-repeat="con in navInfo.data.contestants">{{con.firstName}} {{con.lastName}}</li>
+                    </ul>
+                </li>
+
+            </ul>
+        </md-content>
+    </div>
+</md-sidenav>
+<div layout="column" flex>
+    <md-toolbar layout="row" layout-align="start center" class="toolbar-namespace" md-whiteframe="3">
+        <md-button class="md-icon-button" ng-click="openNav()">
+            <md-icon>menu_horiz</md-icon>
+        </md-button>
+        <div ui-view="header"></div>
+    </md-toolbar>
+    <md-content flex layout="column" class="main-content">
+        <div ui-view="main-content"></div>
+    </md-content>
+</div>
+
+<!-- D3 for graphs -->
+<script src="/libs/d3/d3.min.js"></script>
+
+<!-- Angular Material requires Angular.js Libraries -->
+<script src="/libs/angular/angular.min.js"></script>
+<script src="/libs/angular-animate/angular-animate.min.js"></script>
+<script src="/libs/angular-aria/angular-aria.min.js"></script>
+<script src="/libs/angular-messages/angular-messages.min.js"></script>
+
+<!-- Angular Material Library -->
+<script src="/libs/angular-material/angular-material.min.js"></script>
+
+<!-- Other 3rd Party Libraries -->
+<script src="/libs/angular-ui-router/release/angular-ui-router.min.js"></script>
+
+<!-- App Files -->
+<script src="/core/js/app.js"></script>
+
+<script src="/components/pie-chart/js/EduPieChartController.js"></script>
+<script src="/components/line-graph/js/EduLineGraphController.js"></script>
+<script src="/components/services/DataService.js"></script>
+<script src="/components/services/NavigationService.js"></script>
+
+<script src="/modules/dash/js/DashController.js"></script>
+<script src="/modules/contestants/js/ContestantsController.js"></script>
+<script src="/modules/contestant/js/ContestantController.js"></script>
+<script src="/modules/point/js/PointController.js"></script>
+
+</body>
+</html>

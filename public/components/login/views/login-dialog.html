@@ -1,0 +1,15 @@
+<div layout="column" class="dialog-wrapper" layout-align="center center">
+    <md-input-container>
+        <label>Username</label>
+        <input type="text" ng-model="data.userName"/>
+    </md-input-container>
+    <md-input-container>
+        <label>Password</label>
+        <input type="password" ng-model="data.password"/>
+    </md-input-container>
+    <div layout="row">
+        <md-button class="md-primary md-raised" ng-click="login(data.userName, data.password)">Login</md-button>
+        <md-button class="md-accent md-raised" ng-click="cancel()">Cancel</md-button>
+    </div>
+
+</div>
