@@ -169,3 +169,62 @@ svg line.axis {
 .eliminated {
     text-decoration: line-through;
 }
+
+/* start user list */
+
+.user-list-item {
+    /*height: 70px;*/
+}
+
+.user-place-number{
+    font-size: 2em;
+}
+
+.user-name {
+    font-size: 1.5em;
+    padding-left: 20px;
+}
+
+.user-points {
+    font-size: 1.25em;
+    padding-left: 20px;
+}
+
+.user-contestant-wrapper {
+    height: 70px;
+    border-radius: 2px;
+    margin-left: 20px;
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,.2),0 1px 1px 0 rgba(0,0,0,.14),0 2px 1px -1px rgba(0,0,0,.12);
+    overflow:hidden;
+    position: relative;
+    cursor: pointer;
+    outline: none;
+}
+
+.user-contestant-wrapper:hover {
+    box-shadow: 0 2px 4px -1px rgba(0,0,0,.2),0 4px 5px 0 rgba(0,0,0,.14),0 1px 10px 0 rgba(0,0,0,.12);
+}
+
+.user-contestant-film {
+    height: 100%;
+    width: 100%;
+    opacity: 0.7;
+    position:absolute;
+}
+
+.user-contestant-wrapper:hover .user-contestant-film{
+    opacity: 0;
+}
+
+.user-contestant-img {
+    height: 70px;
+    border-radius: 2px;
+}
+
+.user-contestant-name {
+    text-shadow: 0 0 4px black;
+    color: white;
+    padding-bottom: 4px;
+}
+
+/* end user list */

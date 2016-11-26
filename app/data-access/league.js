@@ -17,7 +17,7 @@ router.route('')
         }
 
         var league = new League();
-        Counter.increment("league", function(err, result){
+        Counter.increment("league", function(err, result){ 
             league._id = result.value.seq;
             league.name = req.body.name;
             league.save(function(err){
@@ -73,7 +73,7 @@ router.route('/:league_id')
 
             league.save(function(err){
                 if(err) {
-                    res.send(err);
+                    res.send(err)
                     return;
                 }
                 res.send(true);

@@ -8,14 +8,14 @@ var mongoose = require('mongoose');
 router.route('')
     .get(function(req, res){
 
-        if(!req.isAdmin){
+        /*if(!req.isAdmin){
             return res.status(403).send({
                  success: false,
                  message: 'No token provided'
              });
-        }
+        }*/
 
-        User.find(function(err, users){
+        User.find({}, '-password' ,function(err, users){
             if(err) {
                 res.send(err);
                 return;

@@ -10,6 +10,27 @@ var jwt = require("jsonwebtoken");
 
 module.exports = function(app) {
 
+
+    router.route('/addUser')
+        .get(function(req, res){
+            var user = new User();
+            user.firstName = "Daniel";
+            user.lastName = "McKittrick";
+            user._id = 1;
+            user.userName = "dmckittrick";
+            user.password = "tpass";
+            user.admin = true;
+            user.save(function(err){
+                if(err){
+                    res.json(err);
+                }
+                else {
+                    res.json(user);
+                }
+
+            });
+        });
+
     // sample api route
     router.route('/login')
 
@@ -65,7 +86,7 @@ module.exports = function(app) {
 
     router.route('/load')
         .get(function (req, res) {
-            var token = req.headers.token;
+            var token = req.headers['token'];
 
             if (!token) {
                 return res.send({
@@ -85,4 +106,8 @@ module.exports = function(app) {
 
     return router;
 
-};
+}
+
+
+
+

@@ -81,7 +81,7 @@ router.route('/:episode_id')
 
             episode.save(function(err){
                 if(err) {
-                    res.send(err);
+                    res.send(err)
                     return;
                 }
                 res.send(true);

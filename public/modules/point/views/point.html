@@ -8,6 +8,9 @@
                 <md-button ng-click="selectAll(1)" flex class="md-raised" style="background-color: #F44336">
                     All Vanua
                 </md-button>
+                <md-button ng-click="selectAll(3)" flex class="md-raised" style="background-color: #4CAF50">
+                    All Ikabula
+                </md-button>
                 <md-button ng-click="selectAll(-1)" flex class="md-raised md-accent">
                     All Remaining
                 </md-button>    
@@ -15,7 +18,7 @@
             <div layout="row" layout-wrap style="padding: 12px;">
                 <div ng-repeat="contestant in data.contestants" flex="50">
                     <md-checkbox ng-checked="exists(contestant, data.selected)" ng-click="toggle(contestant, data.selected)">
-                        <span ng-class="{'eliminated' : contestant.eliminated}">{{ contestant.firstName }} {{ contestant.lastName }}</span> <span class="tribe-badge" ng-style="getColors(contestant.tribe)">{{contestant.tribe.name}}</span>
+                        <span ng-class="{'eliminated' : isEliminated(contestant)}">{{ contestant.firstName }} {{ contestant.lastName }}</span> <span class="tribe-badge" ng-style="getColors(contestant)">{{contestant.tribe.name}}</span>
                     </md-checkbox>
                 </div>
             </div>
@@ -35,7 +38,7 @@
                 <md-input-container flex>
                     <label>Episode</label>
                     <md-select ng-model="data.episode" ng-init="data.episode=data.episodes[0]">
-                        <md-option ng-repeat="episode in data.episodes" ng-value="episode">
+                        <md-option ng-repeat="episode in data.episodes | orderBy:'number'" ng-value="episode">
                             Number {{episode.number}} ({{ episode.date | date : 'MMM d' }})
                         </md-option>
                     </md-select>

@@ -93,7 +93,7 @@ router.route('/:contestant_id')
 
             contestant.save(function(err){
                 if(err) {
-                    res.send(err);
+                    res.send(err)
                     return;
                 }
                 res.send(true);

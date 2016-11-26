@@ -18,13 +18,16 @@ angular.module("SrvvrApp").controller("ContestantsCtrl", [
         $scope.getColor = function(contestant){
             var style = {};
             if (angular.isDefined(contestant.eliminated)){
-                style['backgroundColor'] = "000000";
+                style['backgroundColor'] = "#000000";
             }
-            else if (contestant.tribe._id % 2 === 1){
+            else if (contestant.tribe._id === 1){
                 style['backgroundColor'] = "#F44336";
             }
-            else {
+            else if (contestant.tribe._id === 2){
                 style['backgroundColor'] = "#3F51B5";
+            }
+            else if (contestant.tribe._id === 3){
+                style['backgroundColor'] = "#4CAF50";
             }
             return style;
         }

@@ -11,13 +11,19 @@ angular.module("SrvvrApp").controller("PointCtrl", [
         var ContestantTypeName = "Contestant";
         var episodeTypeName = "Episode";
         
-        $scope.getColors = function(tribe){
+        $scope.getColors = function(contestant){
             var style = {};
-            if(tribe._id % 2 === 1){
+            if(typeof(contestant.eliminated) !== "undefined"){
+                style['opacity'] = "0";
+            }
+            if(contestant.tribe._id === 1){
                 style['backgroundColor'] = "#F44336";
             }
-            else {
+            else if (contestant.tribe._id === 2) {
                 style['backgroundColor'] = "#3F51B5";
+            }
+            else if (contestant.tribe._id === 3) {
+                style['backgroundColor'] = "#4CAF50";
             }
             return style;
         }
@@ -27,10 +33,14 @@ angular.module("SrvvrApp").controller("PointCtrl", [
             skipCheck = tribeId === -1;
             for (var i = 0; i < $scope.data.contestants.length; i++){
                 var contestant = $scope.data.contestants[i];
-                if((skipCheck || contestant.tribe._id === tribeId) && !contestant.eliminated){
+                if((skipCheck || contestant.tribe._id === tribeId) && angular.isUndefined(contestant.eliminated)){
                     $scope.data.selected.push(contestant._id);
                 }
             }
+        }
+
+        $scope.isEliminated = function(contestant){
+            return angular.isDefined(contestant.eliminated)
         }
 
         function getContestants() {

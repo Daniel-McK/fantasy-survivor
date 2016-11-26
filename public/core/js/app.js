@@ -1,13 +1,14 @@
 var app = angular.module('SrvvrApp', ['ngMaterial', 'ui.router']);
 
-app.config(["$mdThemingProvider", "$stateProvider", "$httpProvider", function($mdThemingProvider, $stateProvider, $httpProvider) {
+app.config(["$mdThemingProvider", "$stateProvider", "$httpProvider", "$urlRouterProvider", function($mdThemingProvider, $stateProvider, $httpProvider, $urlRouterProvider) {
     $mdThemingProvider.theme('default')
         .primaryPalette('light-green')
         .accentPalette('amber');
 
+    $urlRouterProvider.otherwise('/');
     $stateProvider
         .state('dash',{
-          url: "",
+          url: "/",
             views: {
                 "header": {templateUrl: "/modules/dash/views/dash-header.html"},
                 "main-content": {templateUrl: "/modules/dash/views/dash.html"}

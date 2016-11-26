@@ -15,7 +15,7 @@ mongoose.disconnect();
 var db = require('./config/db');
 
 // set our port
-var port = process.env.PORT || 82;
+var port = process.env.PORT || 81;
 // connect to our mongoDB database 
 // (uncomment after you enter in your own credentials in config/db.js)
 mongoose.connect(db.url);
@@ -41,10 +41,11 @@ app.use(express.static(__dirname + '/public'));
 require('./app/routes')(app); // configure our routes
 
 // start app ===============================================
-app.listen(port, function(){
-    // shoutout to the user                     
-    console.log('Running on port ' + port);
-});
+// startup our app at http://localhost:8080
+app.listen(port);
+
+// shoutout to the user                     
+console.log('Running on port ' + port);
 
 // expose app           
 exports = module.exports = app;

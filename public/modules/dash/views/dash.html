@@ -1,12 +1,24 @@
-<div ng-controller="DashCtrl" layout="column" layout-gt-sm="row">
-    <div flex-gt-sm class="card" md-whiteframe="1">
-        a
+<div ng-controller="DashCtrl" layout="column">
+    <div class="card user-list-item" md-whiteframe="1" ng-repeat="user in users" layout="row" layout-align="start center">
+        <div class="user-place-wrapper" layout="row">
+            <div class="user-place-number">{{user.rank}}</div>
+            <div class="user-place-descriptor">{{getDescriptor(user.rank)}}</div>
+        </div>
+        <div flex layout-gt-sm="row" layout="column" layout-align-gt-sm="start-center" layout-align="center center">
+            <div class="user-name">
+                {{user.firstName}} {{user.lastName}}
+            </div>
+            <div class="user-points">
+                {{user.points}} points  
+            </div>
+        </div>
+        <div layout="row">
+            <div ng-repeat="contestant in user.contestants" class="user-contestant-wrapper" ng-click="goToContestant(contestant)">
+                <div class="user-contestant-film" ng-style="getColor(contestant)" layout="column" layout-align="end center">
+                    <div class="user-contestant-name">{{contestant.firstName}} </div>
+                </div>
+                <img class="user-contestant-img" ng-src="imgs/{{contestant.imageName}}" />
+            </div>
+        </div>
     </div>
-    <div flex-gt-sm class="card" md-whiteframe="1">
-        b
-    </div>
-    <div flex-gt-sm class="card" md-whiteframe="1">
-        c
-    </div>
-
 </div>

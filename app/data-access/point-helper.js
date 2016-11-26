@@ -15,8 +15,8 @@ function getContestantRank(contestantId){
             var rank = parsePointsForRank(data.contestants, data.points, contestantId);
             deferred.resolve(rank);
         });
-    return deferred.promise;
-
+    return deferred.promise; 
+    
 }
 function getContestants (){
     var deferred = q.defer();
@@ -46,9 +46,8 @@ function getPoints (){
 
 function parsePointsForRank(contestants, points, id){
     var contestantMap = {};
-    var contestant;
     for(var i = 0; i < contestants.length; i++){
-        contestant = contestants[i];
+        var contestant = contestants[i];
         contestant.points = 0;
         contestantMap[contestant._id] = contestant;
     }
@@ -63,7 +62,7 @@ function parsePointsForRank(contestants, points, id){
     var previousAmount = contestants[0].points;
     var rank = 1;
     var backingRank = 1;
-
+   
    if(contestants[0]._id === id){
        return 1;
    }
@@ -86,4 +85,4 @@ function parsePointsForRank(contestants, points, id){
 
 module.exports = {
     getContestantRank: getContestantRank
-};
+}
